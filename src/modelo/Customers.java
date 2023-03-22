@@ -49,7 +49,6 @@ public class Customers implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "CustomerID", unique = true, nullable = false)
 	public Integer getCustomerId() {
 		return this.customerId;
