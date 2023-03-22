@@ -23,12 +23,7 @@ public class Customers implements java.io.Serializable {
 
 	private Set<Products> productos=new HashSet<>(0);
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "CustomersProducts", catalog = "salesdb",
-			joinColumns = {
-					@JoinColumn (name = "idCustomer", nullable = false, updatable = false)},
-			inverseJoinColumns = {
-					@JoinColumn (name = "idProducts", nullable = false, updatable = false)})
+	@OneToMany (fetch = FetchType.LAZY, mappedBy = "customers")
 	public Set<Products> getProductos() {
 		return productos;
 	}

@@ -20,14 +20,15 @@ public class Products implements java.io.Serializable {
 	private String name;
 	private BigDecimal price;
 	private Sales sales;
-	private Set<Customers> customers = new HashSet<Customers>(0);
+	private Customers customers;
 
-	@ManyToMany(mappedBy = "productos")
-	public Set<Customers> getCustomers() {
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn(name="idCostumer", nullable=false)
+	public Customers getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Set<Customers> customers) {
+	public void setCustomers(Customers customers) {
 		this.customers = customers;
 	}
 
